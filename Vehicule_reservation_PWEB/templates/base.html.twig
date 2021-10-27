@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <nav>
+            {% if not app.user%}
+            <li>
+                <a href="{{ path('security_login') }}"> Connexion </a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ path('security_logout') }}"> Déconnexion </a>
+            </li>
+            {% endif %}
+        </nav>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
